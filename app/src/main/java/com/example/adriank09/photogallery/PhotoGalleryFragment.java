@@ -30,7 +30,7 @@ import java.util.List;
 
 // https://api.flickr.com/services/rest/?method=flickr.photos.getRecent&api_key=9adcb75e69fec7e56cdbb62fa60a78d0&format=json&nojsoncallback=1.
 
-public class PhotoGalleryFragment extends Fragment {
+public class PhotoGalleryFragment extends VisibleFragment {
 
     private static final String TAG = "PhotoGalleryFragment";
 

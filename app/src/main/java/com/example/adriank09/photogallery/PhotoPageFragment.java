@@ -1,5 +1,6 @@
 package com.example.adriank09.photogallery;
 
+import android.app.Activity;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -51,6 +52,7 @@ public class PhotoPageFragment extends VisibleFragment {
         // loads URL into WebView
         mWebView = (WebView) v.findViewById(R.id.fragment_photo_page_web_view);
         mWebView.getSettings().setJavaScriptEnabled(true);
+
         mWebView.setWebChromeClient(new WebChromeClient(){
             @Override
             public void onProgressChanged(WebView view, int newProgress) {
@@ -68,6 +70,13 @@ public class PhotoPageFragment extends VisibleFragment {
                 activity.getSupportActionBar().setSubtitle(title);
             }
         });
+        mWebView.setWebViewClient(new WebViewClient() {
+            @Override
+            public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                return false;
+            }
+        });
+
         mWebView.loadUrl(mUri.toString());
 
         return v;
